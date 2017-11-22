@@ -1,3 +1,4 @@
+#Helpful script to remove non-numerical numbers from students' information.
 #!/bin/bash
 while IFS='' read -r line || [[ -n "$line" ]]; do
     #echo "$line"
