@@ -1,9 +1,21 @@
 #!/bin/bash
 
-#for dir in ./*;
-#do (cd "$dir" && pwd && (git ls-files -z | xargs -0 -n1 -I{} -- git log -1 --format="%ai {}" {} | sort | tail -n1 | awk '{print $1" "$2" "$3}'));
-#done
+dueDate="2017-11-23 23:59:59 +0300"
+for dir in ./project*;
+do (cd "$dir" &&
+           alper=$(echo $dir | tail -c +12)  &&
+           echo $alper "     " $due &&
+           studentDate=$(git ls-files -z | xargs -0 -n1 -I{} -- git log -1 --format="%ai {}" {} | sort | tail -n1 | awk '{print $1" "$2" "$3}') &&
+           echo $studentDate "  " $dueDate &&
+           (
+               if [[ "$studentDate" > "$dueDate" ]]; then
+                   echo "LATE*******************************************"
+               fi
+           )
+           echo '-----------------------------'
+   );
 
+done
 
 rm project1-*/project1
 for dir in ./project*;
