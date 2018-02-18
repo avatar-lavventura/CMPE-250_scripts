@@ -6,7 +6,7 @@ for d in deneme2*/ ; do
     branchName=$(git rev-parse --abbrev-ref HEAD) #Branch name only
 
     if [ "$branchName" == "master" ]; then
-	      mv ../$d ../LATE
+	mv ../$d ../LATE
     fi
     cd ..
     #echo '-----------------------------'
